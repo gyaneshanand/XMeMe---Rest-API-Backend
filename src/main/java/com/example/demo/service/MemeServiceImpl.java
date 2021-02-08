@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MemeServiceImpl implements MemeService{
@@ -26,5 +27,11 @@ public class MemeServiceImpl implements MemeService{
     @Override
     public List<Post> getAllPosts() {
         return memeRepository.findAll();
+    }
+
+    @Override
+    public Post updatePost(int id, Post post) {
+        Post upadtedPost = memeRepository.save(post);
+       return upadtedPost;
     }
 }
