@@ -32,7 +32,7 @@ public class MainController {
     @GetMapping("/memes")
     public List<Post> getAllPosts()
     {
-        int MAXPOSTS = 5;
+        int MAXPOSTS = 100;
         List<Post> allPosts = memeService.getAllPosts();
         int numPosts = allPosts.size();
         if(numPosts<=MAXPOSTS)
