@@ -68,4 +68,19 @@ public class MainController {
         memeService.updatePost(id,post);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @DeleteMapping("/memes/{id}")
+    public ResponseEntity<Void> deletePost(@PathVariable int id)
+    {
+        try
+        {
+            memeService.deletePost(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e)
+        {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
+    }
 }

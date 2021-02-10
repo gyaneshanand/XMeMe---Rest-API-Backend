@@ -10,4 +10,5 @@ public interface MemeService {
     public Post getPostById(int id);
     public List<Post> getAllPosts();
     public Post updatePost(int id, Post post);
+    public void deletePost(int id);
 }

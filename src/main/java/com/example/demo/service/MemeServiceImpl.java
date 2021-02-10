@@ -34,4 +34,9 @@ public class MemeServiceImpl implements MemeService{
         Post upadtedPost = memeRepository.save(post);
        return upadtedPost;
     }
+
+    @Override
+    public void deletePost(int id) {
+        memeRepository.deleteById(id);
+    }
 }
