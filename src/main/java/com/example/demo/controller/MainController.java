@@ -32,7 +32,16 @@ public class MainController {
     @GetMapping("/memes")
     public List<Post> getAllPosts()
     {
-        return memeService.getAllPosts();
+        int MAXPOSTS = 5;
+        List<Post> allPosts = memeService.getAllPosts();
+        int numPosts = allPosts.size();
+        if(numPosts<=MAXPOSTS)
+        {
+            return allPosts;
+        }
+        allPosts.sort((Post p1, Post p2)->p2.getId()-p1.getId());
+        List<Post> trimmedPosts = allPosts.subList(0,MAXPOSTS);
+        return trimmedPosts;
     }
 
     @GetMapping("/memes/{id}")
